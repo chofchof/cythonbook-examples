@@ -19,8 +19,17 @@ static PyMethodDef funcs[] = {
     {NULL, NULL, 0, NULL} /* sentinel */
 };
 
+static struct PyModuleDef module = {
+    PyModuleDef_HEAD_INIT,
+    "cfib",   /* name of module */
+    NULL,     /* module documentation, may be NULL */
+    -1,       /* size of per-interpreter state of the module,
+                 or -1 if the module keeps state in global variables. */
+    funcs
+};
+
 PyMODINIT_FUNC
-initcfib(void)
+PyInit_cfib(void)
 {
-    (void) Py_InitModule("cfib", funcs);
+    return PyModule_Create(&module);
 }
