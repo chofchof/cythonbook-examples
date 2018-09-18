@@ -10,6 +10,7 @@ def timer(arg, niter, name, module):
 
 N = 10**6
 pytime_0 = timer(0, N, name='fib', module='fib')
+N *= 10
 cytime_0 = timer(0, N, name='fib', module='cyfib')
 cexttime_0 = timer(0, N, name='fib', module='cfib')
 ctime_0 = float(check_output(('./cfib.x 0 %d' % N).split()))
@@ -21,6 +22,7 @@ c0speedup = pytime_0 / ctime_0
 
 N = 10**5
 pytime_90 = timer(90, N, name='fib', module='fib')
+N *= 10
 cytime_90 = timer(90, N, name='fib', module='cyfib')
 cexttime_90 = timer(90, N, name='fib', module='cfib')
 ctime_90 = float(check_output(('./cfib.x 90 %d' % N).split()))
